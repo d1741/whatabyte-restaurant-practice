@@ -1,0 +1,20 @@
+extends layout
+
+//- "Pug templates don't use HTML tags, instead, they simply use the names of HTML elements and whitespace to define the structure of a template."
+block layout-content
+    .View
+        h1.Banner WHATABYTE
+        .Message
+            .Title
+                h3 Making the Best
+                h1 Food for Devs
+            span.Details Access the WHATABYTE Team Portal
+        .NavButtons
+            //- "The isAuthenticated value will be provided to the template by route handlers (aka controllers) defined in the API"
+            if isAuthenticated
+                a(href="/user")
+                    div.NavButton Just dive in!
+            else
+                a(href="/login")
+                    div.NavButton Log in
+
