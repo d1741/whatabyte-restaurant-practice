@@ -1,12 +1,30 @@
-// path and express imports
+// required external modules
 const path = require('path');
 const express = require('express');
+const expressSession = require('express-session');
+const passport = require('passport');
+const Auth0Strategy = require('passport-auth0');
 
-// app and port definitions
+require('dotenv').config();
+
+// app variables
 const app = express();
 const port = process.env.PORT || '7500';
 
-// Connects the Pug templates with the controllers:
+// session config
+const session = {
+	secret: 'noifsandsorbutswithagifthorseinthemouth',
+	cookie: {},
+	resave: false,
+	saveUninitialized: false
+};
+
+if (app.get('env') === 'production') {
+	session.cookie.secure = true;
+}
+// passport config
+
+// app config
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
@@ -17,6 +35,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', (req, res) => {
 	res.render('index', { title: 'Home' });
 });
+
+app.get('/login', (req, res, next) => {});
 
 // GET to render user profile
 app.get('/user', (req, res) => {
