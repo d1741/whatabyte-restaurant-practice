@@ -4,15 +4,18 @@
 	"description": "This is a tutorial for making a restaurant site",
 	"main": "index.js",
 	"scripts": {
-		"dev": "nodemon ./index.js"
+		"dev": "nodemon ./index.js",
+		"ui": "browser-sync start --proxy=localhost:7500 --files='**/*.css, **/*.pug, **/*.js' --ignore=node_modules --reload-delay 10 --no-ui --no-notify"
 	},
 	"keywords": [],
 	"author": "",
 	"license": "ISC",
 	"devDependencies": {
+		"browser-sync": "^2.26.7",
 		"nodemon": "^1.19.4"
 	},
 	"dependencies": {
-		"express": "^4.17.1"
+		"express": "^4.17.1",
+		"pug": "^2.0.4"
 	}
 }
