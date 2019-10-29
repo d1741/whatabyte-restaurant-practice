@@ -4,7 +4,9 @@
 	"description": "This is a tutorial for making a restaurant site",
 	"main": "index.js",
 	"scripts": {
+		// runs node application on port 7500
 		"dev": "nodemon ./index.js",
+		// creates a static server to serve the client on port 3000,
 		"ui": "browser-sync start --proxy=localhost:7500 --files='**/*.css, **/*.pug, **/*.js' --ignore=node_modules --reload-delay 10 --no-ui --no-notify"
 	},
 	"keywords": [],
