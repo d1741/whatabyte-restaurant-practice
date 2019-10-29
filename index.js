@@ -18,6 +18,11 @@ app.get('/', (req, res) => {
 	res.render('index', { title: 'Home' });
 });
 
+// GET to render user profile
+app.get('/user', (req, res) => {
+	res.render('user', { title: 'Profile', userProfile: { nickname: 'Auth' } });
+});
+
 app.listen(port, () => {
 	console.log(`Listening for requests at http://localhost:${port}`);
 });
