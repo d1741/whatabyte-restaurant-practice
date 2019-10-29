@@ -149,3 +149,8 @@ a {
 	border-bottom: var(--ui-shawdow-border);
 	box-shadow: var(--ui-shawdow);
 }
+
+.WelcomeView {
+	background: url('dev-food.jpg') left bottom;
+	background-size: cover;
+}
