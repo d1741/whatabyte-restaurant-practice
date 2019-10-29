@@ -11,7 +11,7 @@ const port = process.env.PORT || '7500';
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
-// handles GET requests made to the root path and, if the req is successful, renders our pug template for the home page
+// handles GET requests made to the root path and, if the req is successful, renders index.pug as the client response
 app.get('/', (req, res) => {
 	res.render('index', { title: 'Home' });
 });
