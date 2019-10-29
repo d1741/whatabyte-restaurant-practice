@@ -8,6 +8,7 @@ const Auth0Strategy = require('passport-auth0');
 require('dotenv').config();
 
 // app variables
+const authRouter = require('./auth');
 const app = express();
 const port = process.env.PORT || '7500';
 
@@ -53,12 +54,18 @@ passport.use(strategy);
 app.use(passport.initialize());
 app.use(passport.session());
 
+// storing and retrieving user data from a session:
+passport.serializeUser((user, done) => {
+	done(null, user);
+});
+passport.deserializeUser((user, done) => {
+	done(null, user);
+});
+
 // handles GET requests made to the root path and, if the req is successful, renders index.pug as the client response
 app.get('/', (req, res) => {
 	res.render('index', { title: 'Home' });
 });
-
-app.get('/login', (req, res, next) => {});
 
 // GET to render user profile
 app.get('/user', (req, res) => {
